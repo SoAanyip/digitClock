@@ -268,6 +268,12 @@
 			msg.balls[i].r = msg.RADIUS;
 		}
 	}
-	
-	window.digitClock = window.digitClock || digitClock;
+
+	/*支持AMD规范*/
+    if ( typeof define === "function" && define.amd) {
+        define(function () { return digitClock; } );
+    }else{
+        window.digitClock = window.digitClock || digitClock;
+    }
+
 })(window)
